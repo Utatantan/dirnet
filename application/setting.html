@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        /* ダークモード用のスタイル */
+        body.dark-mode {
+            background-color: #222;
+            color: #ffffff;
+        }
+        input.dark-mode {
+            background-color: #333;
+            color: #ffffff;
+        }
+        button.dark-mode {
+            background-color: #444;
+            color: #ffffff;
+        }      
+    </style>
+    <script src="applyMode.js"></script>
+</head>
+<body>
+    <h2>Set Directory Path</h2>
+    <input type="text" id="path-input" placeholder="">
+    <br>
+    <button id="browse-btn">Browse</button>
+    <button id="save-btn">Save</button>
+
+    <script src="settings.js"></script>
+</body>
+</html>

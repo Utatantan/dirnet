@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <script src="applyMode.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #block-dlt-btn {
+            margin-top: 20px;
+            color: rgb(225, 42, 42);
+            font-weight: bold;
+        }
+        /* ダークモード用のスタイル */
+        body.dark-mode {
+            background-color: #222;
+            color: #ffffff;
+        }
+        input.dark-mode {
+            background-color: #333;
+            color: #ffffff;
+        }
+        button.dark-mode {
+            background-color: #444;
+            color: #ffffff;
+        }      
+    </style>
+</head>
+<body>
+    <h1 id="edit-dir-id">No directory selected</h1>
+    <div id="composition-container">
+        <h2>Composition</h2>
+        <div id="composition-dirs"></div>
+        <input type="text" id="composition-input" placeholder="">
+        <br>
+        <button id="add-composition-btn">Add</button>
+        <button id="delete-composition-btn">Delete</button>
+    </div>
+
+    <div id="super-container">
+        <h2>Super</h2>
+        <div id="super-dir"></div>
+        <input type="text" id="super-input" placeholder="">
+        <br>
+        <button id="change-super-btn">Change</button>
+        <button id="delete-super-btn">Delete</button>
+    </div>
+
+    <div id="change-name-container">
+        <h2>Change Name (Under development)</h2>
+        <input type="text" id="change-name-input" placeholder="">
+        <br>
+        <button id="change-name-btn">Change</button>
+    </div>
+
+    <button id="block-dlt-btn"></button>
+    <script src="edit.js"></script>
+</body>
+</html>

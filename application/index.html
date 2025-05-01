@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />    
+    <title>DirNet</title>
+    <script src="./node_modules/d3/dist/d3.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./main.css" type="text/css">
+  </head>
+  <body>
+    <!-- <div>Directory structure</div> -->
+    <div id="current-path"></div>
+    <div id="main_view"></div>
+    <div id="extra_vire"></div> 
+
+  <!-- 設定ボタン -->
+  <button id="setting-btn" class="btn">
+    <svg width="24" height="24" viewBox="0 0 24 24">
+      <!-- ギアアイコン -->
+      <path d="M12 15.5C10.07 15.5 8.5 13.93 8.5 12C8.5 10.07 10.07 8.5 12 8.5C13.93 8.5 15.5 10.07 15.5 12C15.5 13.93 13.93 15.5 12 15.5ZM19.43 12.98C19.47 12.65 19.5 12.33 19.5 12C19.5 11.67 19.47 11.35 19.43 11.02L21.4 9.37C21.67 9.13 21.73 8.74 21.54 8.46L19.54 5.54C19.34 5.26 18.98 5.16 18.68 5.3L16.32 6.36C15.76 5.96 15.15 5.62 14.5 5.34L14.15 2.79C14.11 2.48 13.86 2.25 13.55 2.25H10.45C10.14 2.25 9.89 2.48 9.85 2.79L9.5 5.34C8.85 5.62 8.24 5.96 7.68 6.36L5.32 5.3C5.02 5.16 4.66 5.26 4.46 5.54L2.46 8.46C2.27 8.74 2.33 9.13 2.6 9.37L4.57 11.02C4.53 11.35 4.5 11.67 4.5 12C4.5 12.33 4.53 12.65 4.57 12.98L2.6 14.63C2.33 14.87 2.27 15.26 2.46 15.54L4.46 18.46C4.66 18.74 5.02 18.84 5.32 18.7L7.68 17.64C8.24 18.04 8.85 18.38 9.5 18.66L9.85 21.21C9.89 21.52 10.14 21.75 10.45 21.75H13.55C13.86 21.75 14.11 21.52 14.15 21.21L14.5 18.66C15.15 18.38 15.76 18.04 16.32 17.64L18.68 18.7C18.98 18.84 19.34 18.74 19.54 18.46L21.54 15.54C21.73 15.26 21.67 14.87 21.4 14.63L19.43 12.98Z"
+            fill="white" stroke="black" stroke-width="1.5"/>
+    </svg>
+  </button>
+
+    <button id="add-dir-btn" class="btn"> 
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <!-- フォルダ本体 -->
+        <path d="M3 6C3 4.9 3.9 4 5 4H10L12 6H19C20.1 6 21 6.9 21 8V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V6Z" 
+              fill="white" stroke="black" stroke-width="1.5"/>
+        <!-- ＋マーク -->
+        <line x1="12" y1="10" x2="12" y2="16" stroke="black" stroke-width="1.5"/>
+        <line x1="9" y1="13" x2="15" y2="13" stroke="black" stroke-width="1.5"/>
+      </svg>
+    </button>
+    <button id="toggle-mode" class="btn">
+      <!-- 月のアイコン -->
+      <svg id="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M14 3C11.8 3 9.72 3.88 8.22 5.44C6.47 7.26 5.55 9.63 5.84 12.09C6.1 14.36 7.24 16.46 9 17.97C10.71 19.44 12.9 20.16 15.1 19.93C17.61 19.68 19.96 18.27 21.44 16.1C19.52 17.27 17.16 17.66 14.97 17.17C12.31 16.58 10.21 14.55 9.54 11.97C8.87 9.39 9.81 6.74 11.88 5.13C12.8 4.41 13.89 3.97 15 3.73C14.67 3.55 14.34 3.38 14 3Z" 
+        stroke="black" stroke-width="1.5" fill="white"/>
+    </svg>
+      <!-- 太陽のアイコン -->
+      <svg id="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+        <circle cx="12" cy="12" r="5" fill="currentColor" stroke="black" stroke-width="1.5"/>
+        <path d="M12 1V3" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 21V23" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4.22 4.22L5.64 5.64" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M18.36 18.36L19.78 19.78" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M1 12H3" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M21 12H23" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4.22 19.78L5.64 18.36" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M18.36 5.64L19.78 4.22" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+    <svg width="400" height="300"></svg>
+  </body>
+  <script type="module" src="./renderer.js"></script>
+</html>

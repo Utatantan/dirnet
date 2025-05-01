@@ -1,0 +1,119 @@
+body {
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ダークモード */
+.dark-mode {
+    background: #222;
+    color: #fff;
+}
+
+#current-path {
+  background-color: #f1f1f1; 
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 16px;
+  /* color: #333; */
+  z-index: 1000; /* 他の要素より前に表示 */
+  border: 1px solid #333; /* 枠線の色と太さ */
+  border-radius: 8px; /* 角丸の半径 */
+  padding: 5px; /* 内側の余白 */
+  /* background-color: rgba(255, 255, 255, 0.8); 背景色と透明度 */
+}
+
+.dark-mode #current-path {
+  background-color: #333;
+  border: 0.5px solid #929292; /* 枠線の色と太さ */
+}
+
+#toggle-mode {
+  /* background-color: #f1f1f1;  */
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: fixed;
+  top: 110px;
+  right: 10px;
+  z-index: 1000; /* 他の要素より前に表示 */
+}
+
+#add-dir-btn {
+    /* background-color: #f1f1f1;  */
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    z-index: 1000; /* 他の要素より前に表示 */
+  }
+
+  #add-dir-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  #setting-btn {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* 他の要素より前に表示 */
+  }
+
+  #setting-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn {
+    background-color: #f1f1f1; 
+  }
+
+  .dark-mode .btn {
+    background-color: #333;
+  }
+
+  .btn:hover {
+    background-color: rgb(173, 173, 173); 
+  }
+
+  .dark-mode .btn:hover {
+    background-color: rgb(100, 100, 100); 
+  }
+
+
+
+
+
+/* 
+#toggle-mode:hover {
+  background-color: rgb(173, 173, 173); 
+}
+#setting-btn:hover {
+  background-color: rgb(173, 173, 173); 
+}
+#add-dir-btn:hover {
+  background-color: rgb(173, 173, 173); 
+} */
